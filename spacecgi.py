@@ -32,12 +32,15 @@ if not "update_device_count" in args.keys():
     print "What do you want to do?"
     sys.exit(0)
 
+device_count = int(args["update_device_count"].value)
+
 # change data
-if int(args["update_device_count"].value) > 0:
+if device_count > 0:
     data["open"] = True
 else:
     data["open"] = False
 
+data["status"] = "Active members: %d" % device_count
 data["lastchange"] = int(time())
 
 # save data
